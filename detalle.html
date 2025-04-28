@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Peluche</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="detalle">
+        <h1 id="nombre-producto">Cargando...</h1>
+        <img id="imagen-marker" src="" alt="Imagen del marcador" style="max-width:90%; margin-top:20px;">
+        <br><br>
+        <a href="index.html">← Volver al catálogo</a>
+    </div>
+
+    <script>
+      // Obtener el parámetro de la URL
+      const params = new URLSearchParams(window.location.search);
+      const producto = params.get('producto');
+
+      // Datos de productos
+      const productos = {
+        peluche1: {
+          nombre: "Peluche de elefante gris",
+          marcador: "marcadores/peluche1-marker.jpg"
+        },
+        peluche2: {
+          nombre: "Peluche de gato blanco",
+          marcador: "marcadores/peluche2-marker.jpg"
+        },
+        peluche3: {
+          nombre: "Peluche de Mario",
+          marcador: "marcadores/peluche3-marker.jpg"
+        },
+        // Continúas con los demás peluches...
+      };
+
+      // Mostrar los datos
+      if(productos[producto]) {
+        document.getElementById('nombre-producto').textContent = productos[producto].nombre;
+        document.getElementById('imagen-marker').src = productos[producto].marcador;
+      } else {
+        document.getElementById('nombre-producto').textContent = "Producto no encontrado";
+      }
+    </script>
+</body>
+</html>
